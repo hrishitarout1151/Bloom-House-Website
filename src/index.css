@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ivory text-plum-900 font-body antialiased;
+}
+
+h1, h2, h3, h4 {
+  @apply font-display;
+}
+
+/* Scalloped edge divider — used between sections instead of a hard line */
+.scallop-bottom {
+  position: relative;
+}
+.scallop-bottom::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 22px;
+  background-image: radial-gradient(circle at 11px 0, transparent 11px, var(--scallop-color, #FDF6EE) 11.5px);
+  background-size: 22px 22px;
+  background-repeat: repeat-x;
+}
+
+/* Visible keyboard focus ring, brand-colored */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #C6467D;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: #F0B4CC;
+  color: #2B2130;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@keyframes sway {
+  0%, 100% { transform: rotate(-2deg) translateY(0); }
+  50% { transform: rotate(2deg) translateY(-6px); }
+}
+.animate-sway {
+  animation: sway 6s ease-in-out infinite;
+}
+
+@keyframes drift {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  100% { transform: translateY(110vh) rotate(45deg); opacity: 0; }
+}
