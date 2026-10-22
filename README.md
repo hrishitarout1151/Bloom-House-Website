@@ -79,14 +79,3 @@ npm run dev                 # http://localhost:4000
 
 Total ongoing cost on free tiers: **₹0/month** until traffic outgrows them —
 worth mentioning to the client.
-
-## Before you pitch this
-
-- Swap every placeholder (menu prices, hours, phone number, Zomato/Swiggy
-  links in `frontend/src/components/OrderOnline.jsx`) for Bloom House's
-  real details.
-- Get 6–10 real photos (phone camera is fine) for the Story and Gallery
-  sections — placeholders are clearly marked in the code.
-- Show them the live demo link first. Don't hand over the code or deploy
-  it to their domain until the project is agreed and (ideally) a deposit
-  is paid.
