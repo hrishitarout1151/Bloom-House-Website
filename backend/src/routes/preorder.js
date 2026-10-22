@@ -21,6 +21,9 @@ router.post("/", async (req, res) => {
 // Simple listing endpoint for staff to check today's pre-orders.
 // In production, protect this with an auth check before going live.
 router.get("/", async (req, res) => {
+  if (!process.env.ADMIN_KEY || req.get("x-admin-key") !== process.env.ADMIN_KEY) {
+    return res.status(401).json({ message: "Unauthorized." });
+  }
   try {
     const preorders = await Preorder.find().sort({ createdAt: -1 }).limit(100);
     res.json(preorders);
